@@ -3,4 +3,8 @@
 
 using namespace std;
 
+class Leiturista : public Funcionario {
+
+}
+
 #endif
