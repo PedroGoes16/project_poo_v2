@@ -5,6 +5,10 @@
 #include "LocalizacaoGeografica.h"
 #include "UnidadeConsumidora.h"
 
+#include <iostream>
+
+using namespace std;
+
 int main(){
 
     Endereco end_1("Rua 10", 100, "Bairro 2", "AP 102", 31030085, "BH", "MG");
@@ -22,5 +26,17 @@ int main(){
     cliente_1.addFatura(&fat_1);
 
     unid_1.addFatura(&fat_1);
+
+    cout << cliente_1.getFaturas()[0]->getValor() << endl;
+
+    cout << cliente_1.getUnidadesVinculadas()[0]->getId() << endl;
+
+    cout << unid_1.getFaturas()[0]->getValor() << endl;
+
+    cliente_1.removeUnidadeVinculada(&unid_1);
+
+    cliente_1.removeFatura(&fat_1);
+
+    unid_1.removeFatura(&fat_1);
 
 }

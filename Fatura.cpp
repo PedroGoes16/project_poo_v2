@@ -39,3 +39,7 @@ void Fatura::setStatusPagamento(bool _status_pagamento){
 bool Fatura::getStatusPagamento(){
     return this->status_pagamento;
 }
+
+float Fatura::calcularJuros(Fatura* _fatura){
+    if(_fatura->getStatusPagamento() || fatura->getVencimento().difDatas())
+}

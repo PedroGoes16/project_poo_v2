@@ -7,7 +7,7 @@ class Data{
     int dia;
     int mes;
     int ano;
-    int dias = (ano-1)*360 + (mes-1)*30 + dias;
+    int data_em_dias = (ano-1)*360 + (mes-1)*30 + dia;
 
     public:
     Data();
@@ -18,7 +18,8 @@ class Data{
     int getMes();
     void setAno(int);
     int getAno();
-    int difData(Data);
+    int getDataEmDias();
+    int difDatas(Data);
 };
 
 #endif

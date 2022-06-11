@@ -32,6 +32,10 @@ int Data::getAno(){
     return this->ano;
 }
 
-int Data::difData(Data _data){
-    return (this->dias - _data.dias);
+int Data::getDataEmDias(){
+    return this->data_em_dias;
+}
+
+int Data::difDatas(Data _data){
+    return (this->data_em_dias - _data.data_em_dias);
 }

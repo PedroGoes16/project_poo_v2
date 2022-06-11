@@ -22,6 +22,7 @@ class Fatura{
     Data getVencimento();
     void setStatusPagamento(bool);
     bool getStatusPagamento();
+    float calcularJuros(Fatura*);
 
 };
 
