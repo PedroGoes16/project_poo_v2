@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Endereco.h"
+#include "Fatura.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ class UnidadeConsumidora {
     private:
     string id;
     string tipo;
-    float ultima_leitura;
+    float ultima_leitura = 0;
     Endereco endereco;
     vector<Fatura*> faturas;
 
@@ -27,8 +28,8 @@ class UnidadeConsumidora {
     float getUltimaLeitura();
     void setEndereco(Endereco);
     Endereco getEndereco();
-    void addFatura(Fatura &);
-    void removeFatura(Fatura &);
+    void addFatura(Fatura*);
+    void removeFatura(Fatura*);
     vector<Fatura*> getFaturas();
 
 };

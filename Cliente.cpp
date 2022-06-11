@@ -46,12 +46,12 @@ void Cliente::addUnidadeVinculada(UnidadeConsumidora* _uc){
 }
 
 void Cliente::removeUnidadeVinculada(UnidadeConsumidora* _uc){
-    vector<UnidadeConsumidora*>::iterator elemento_removido = this->unidades_vinculadas.begin();
+    vector<UnidadeConsumidora*>::iterator unidade_removida = this->unidades_vinculadas.begin();
     for(UnidadeConsumidora* uc : this->unidades_vinculadas){
         if(uc == _uc){
-            this->unidades_vinculadas.erase(elemento_removido);
+            this->unidades_vinculadas.erase(unidade_removida);
         }
-        elemento_removido++;
+        unidade_removida++;
     }
 }
 
@@ -64,10 +64,12 @@ void Cliente::addFatura(Fatura* _fatura){
 }
 
 void Cliente::removeFatura(Fatura* _fatura){
-    for(Fatura fatura : this->faturas){
+    vector<Fatura*>::iterator fatura_removida = this->faturas.begin();
+    for(Fatura* fatura : this->faturas){
         if(fatura == _fatura){
-            this->unidades_vinculadas.erase(_fatura);
+            this->faturas.erase(fatura_removida);
         }
+        fatura_removida++;
     }
 }
 

@@ -1,5 +1,7 @@
 #include "Data.h"
 
+Data::Data(){}
+
 Data::Data(int _dia, int _mes, int _ano){
     this->dia = _dia;
     this->mes = _mes;

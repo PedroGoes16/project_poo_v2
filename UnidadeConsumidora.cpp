@@ -42,15 +42,17 @@ float UnidadeConsumidora::getUltimaLeitura(){
     return this->ultima_leitura;
 }
 
-void UnidadeConsumidora::addFatura(Fatura &_fatura){
+void UnidadeConsumidora::addFatura(Fatura* _fatura){
     this->faturas.push_back(_fatura);
 }
 
-void UnidadeConsumidora::removeFatura(Fatura &_fatura){
-    for(Fatura fatura : this->faturas){
+void UnidadeConsumidora::removeFatura(Fatura* _fatura){
+    vector<Fatura*>::iterator fatura_removida = this->faturas.begin();
+    for(Fatura* fatura : this->faturas){
         if(fatura == _fatura){
-            this->faturas.erase(_fatura);
+            this->faturas.erase(fatura_removida);
         }
+        fatura_removida++;
     }
 }
 

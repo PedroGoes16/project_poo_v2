@@ -2,7 +2,7 @@
 
 Endereco::Endereco(){}
 
-Endereco::Endereco(string _logradouro, int _numero, string _bairro, string _complemento, int _cep, string _cidade, string _estado){
+Endereco::Endereco(string _logradouro, int _numero, string _bairro, string _complemento, long int _cep, string _cidade, string _estado){
     this->logradouro = _logradouro;
     this->numero = _numero;
     this->bairro = _bairro;
@@ -44,11 +44,11 @@ string Endereco::getComplemento(){
     return this->complemento;
 }
 
-void Endereco::setCep(int _cep){
+void Endereco::setCep(long int _cep){
     this->cep = _cep;
 }
 
-int Endereco::getCep(){
+long int Endereco::getCep(){
     return this->cep;
 }
 

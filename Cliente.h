@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Endereco.h"
 #include "UnidadeConsumidora.h"
+#include "Fatura.h"
 
 using namespace std;
 

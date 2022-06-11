@@ -13,13 +13,13 @@ class Endereco : LocalizacaoGeografica {
     int numero;
     string bairro;
     string complemento;
-    int cep;
+    long int cep;
     string cidade;
     string estado;
 
     public:
     Endereco();
-    Endereco(string, int, string, string, int, string, string);
+    Endereco(string, int, string, string, long int, string, string);
     void setLogradouro(string);
     string getLogradouro();
     void setNumero(int);
@@ -28,8 +28,8 @@ class Endereco : LocalizacaoGeografica {
     string getBairro();
     void setComplemento(string);
     string getComplemento();
-    void setCep(int);
-    int getCep();
+    void setCep(long int);
+    long int getCep();
     void setCidade(string);
     string getCidade();
     void setEstado(string);
