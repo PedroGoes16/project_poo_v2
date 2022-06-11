@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "Endereco.h"
+#include "UnidadeConsumidora.h"
 
 using namespace std;
 
@@ -18,6 +20,8 @@ class Cliente {
     vector<Fatura*> faturas;
 
     public:
+    Cliente();
+    Cliente(string, Endereco, long int, long int);
     void setNome(string);
     string getNome();
     void setEndereco(Endereco);
@@ -26,11 +30,11 @@ class Cliente {
     long int getTelefone();
     void setCpfCnpj(long int);
     long int getCpfCnpj();
-    void addUnidadeVinculada(UnidadeConsumidora &);
-    void removeUnidadeVinculada(UnidadeConsumidora &);
+    void addUnidadeVinculada(UnidadeConsumidora*);
+    void removeUnidadeVinculada(UnidadeConsumidora*);
     vector<UnidadeConsumidora*> getUnidadesVinculadas();
-    void addFatura(Fatura &);
-    void removeFatura(Fatura &);
+    void addFatura(Fatura*);
+    void removeFatura(Fatura*);
     vector<Fatura*> getFaturas();
 
 };

@@ -2,6 +2,13 @@
 
 Cliente::Cliente(){}
 
+Cliente::Cliente(string _nome, Endereco _endereco, long int _telefone, long int _cpf_cnpj){
+    this->nome = _nome;
+    this->endereco = _endereco;
+    this->telefone = _telefone;
+    this->cpf_cnpj = _cpf_cnpj;
+}
+
 void Cliente::setNome(std::string _nome){
     this->nome = _nome;
 }
@@ -34,15 +41,17 @@ long int Cliente::getCpfCnpj(){
     return this->cpf_cnpj;
 }
 
-void Cliente::addUnidadeVinculada(UnidadeConsumidora &_uc){
+void Cliente::addUnidadeVinculada(UnidadeConsumidora* _uc){
     this->unidades_vinculadas.push_back(_uc);
 }
 
-void Cliente::removeUnidadeVinculada(UnidadeConsumidora &_uc){
-    for(UnidadeConsumidora uc : this->unidades_vinculadas){
+void Cliente::removeUnidadeVinculada(UnidadeConsumidora* _uc){
+    vector<UnidadeConsumidora*>::iterator elemento_removido = this->unidades_vinculadas.begin();
+    for(UnidadeConsumidora* uc : this->unidades_vinculadas){
         if(uc == _uc){
-            this->unidades_vinculadas.erase(_uc);
+            this->unidades_vinculadas.erase(elemento_removido);
         }
+        elemento_removido++;
     }
 }
 
@@ -50,11 +59,11 @@ vector<UnidadeConsumidora*> Cliente::getUnidadesVinculadas(){
     return this->unidades_vinculadas;
 }
 
-void Cliente::addFatura(Fatura &_fatura){
+void Cliente::addFatura(Fatura* _fatura){
     this->faturas.push_back(_fatura);
 }
 
-void Cliente::removeFatura(Fatura &_fatura){
+void Cliente::removeFatura(Fatura* _fatura){
     for(Fatura fatura : this->faturas){
         if(fatura == _fatura){
             this->unidades_vinculadas.erase(_fatura);
