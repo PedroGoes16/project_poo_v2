@@ -7,10 +7,11 @@
 #include "Endereco.h"
 #include "UnidadeConsumidora.h"
 #include "Fatura.h"
+#include "Usuario.h"
 
 using namespace std;
 
-class Cliente {
+class Cliente : public Usuario {
 
     private:
     string nome;
