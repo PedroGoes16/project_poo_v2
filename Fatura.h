@@ -6,6 +6,7 @@
 class Fatura{
 
     private:
+    float taxa_juros = 0.01;
     float consumo;
     float valor;
     Data vencimento;
@@ -22,7 +23,9 @@ class Fatura{
     Data getVencimento();
     void setStatusPagamento(bool);
     bool getStatusPagamento();
-    float calcularJuros(Fatura*);
+    void setTaxaJuros(float);
+    float getTaxaJuros();
+    float calcularJuros();
 
 };
 
