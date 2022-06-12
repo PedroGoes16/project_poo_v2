@@ -11,9 +11,9 @@ class Usuario {
     public:
     Usuario();
     Usuario(int, int);
-    int getId();
-    void setSenha(int);
     int getSenha();
+    void setSenha(int);
+    int getId();
 };
 
 #endif
