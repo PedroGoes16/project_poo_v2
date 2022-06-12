@@ -19,7 +19,7 @@ int main(){
 
     cliente_1.addUnidadeVinculada(&unid_1);
 
-    Data venc_1(30, 06, 2022);
+    Data venc_1(01, 06, 2022);
 
     Fatura fat_1(100, 202.23, venc_1);
 
@@ -33,10 +33,6 @@ int main(){
 
     cout << unid_1.getFaturas()[0]->getValor() << endl;
 
-    cliente_1.removeUnidadeVinculada(&unid_1);
-
-    cliente_1.removeFatura(&fat_1);
-
-    unid_1.removeFatura(&fat_1);
+    cout << fat_1.calcularJuros() << endl;
 
 }

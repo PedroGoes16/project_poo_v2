@@ -7,7 +7,7 @@ class Data{
     int dia;
     int mes;
     int ano;
-    int data_em_dias = (ano-1)*360 + (mes-1)*30 + dia;
+    int data_em_dias;
 
     public:
     Data();
@@ -20,6 +20,8 @@ class Data{
     int getAno();
     int getDataEmDias();
     int difDatas(Data);
+    Data getDataAtual();
+    
 };
 
 #endif

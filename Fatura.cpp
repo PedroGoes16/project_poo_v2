@@ -1,5 +1,8 @@
 #include "Fatura.h"
 
+#include <iostream>
+using namespace std;
+
 Fatura::Fatura(){}
 
 Fatura::Fatura(float _consumo, float _valor, Data _vencimento){
@@ -40,6 +43,25 @@ bool Fatura::getStatusPagamento(){
     return this->status_pagamento;
 }
 
-float Fatura::calcularJuros(Fatura* _fatura){
-    if(_fatura->getStatusPagamento() || fatura->getVencimento().difDatas())
+void Fatura::setTaxaJuros(float _taxa_juros){
+    this->taxa_juros = _taxa_juros;
+}
+
+float Fatura::getTaxaJuros(){
+    return this->taxa_juros;
+}
+
+float Fatura::calcularJuros(){
+    float montante = this->getValor();
+    if(this->getStatusPagamento() || this->getVencimento().difDatas(this->getVencimento().getDataAtual()) >= 0){
+        return 0;
+    } else {
+        int atraso = (-1)*this->getVencimento().difDatas(this->getVencimento().getDataAtual());
+        cout << atraso << endl;
+        while(atraso > 0){
+            montante += montante*this->getTaxaJuros();
+            atraso -= 30;
+        }
+        return (montante - this->getValor());
+    }
 }

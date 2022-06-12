@@ -1,4 +1,9 @@
 #include "Data.h"
+#include <ctime>
+#include <chrono>
+
+using namespace std;
+using namespace chrono;
 
 Data::Data(){}
 
@@ -33,9 +38,21 @@ int Data::getAno(){
 }
 
 int Data::getDataEmDias(){
+    this->data_em_dias = (this->ano-1)*360 + (this->mes-1)*30 + this->dia;
     return this->data_em_dias;
 }
 
 int Data::difDatas(Data _data){
-    return (this->data_em_dias - _data.data_em_dias);
+    return (this->getDataEmDias() - _data.getDataEmDias());
+}
+
+Data Data::getDataAtual(){
+
+    time_t t;
+    time(&t);
+
+    Data data_atual(localtime(&t)->tm_mday, (localtime(&t)->tm_mon + 1), (localtime(&t)->tm_year + 1900));
+
+    return data_atual;
+
 }
