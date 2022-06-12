@@ -1,13 +1,98 @@
 #include "Cliente.h"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
+
+bool validar_cpf(string cpf){
+    int multiplicador = 10;
+    int soma = 0, aux, resto, cod_1, cod_2;
+    for(int i = 0; i<9; i++){
+        aux = cpf[i]-'0';
+        soma+= aux*(multiplicador-i);
+    }
+    resto = soma%11;
+    if(resto < 2){
+        cod_1 = 0;
+    } else {
+        cod_1 = 11 - resto;
+    }
+    if(cod_1 != (cpf[9]-'0')){
+        return false;
+    } else {
+        soma = 0;
+        multiplicador = 11;
+        for(int i = 0; i<10; i++){
+            aux = cpf[i]-'0';
+            soma+= aux*(multiplicador-i);
+        }
+        resto = soma%11;
+        if(resto < 2){
+            cod_2 = 0;
+        } else {
+            cod_2 = 11 - resto;
+        }
+        if(cod_2 != (cpf[10]-'0')){
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
+bool validar_cnpj(string cnpj){
+    vector<int> multiplicador = {6,5,4,3,2,9,8,7,6,5,4,3,2};
+    int soma = 0;
+    int aux, resto, cod_1, cod_2;
+    for(int i=0; i<12; i++){
+        aux = cnpj[i] - '0';
+        soma += aux*multiplicador[i+1];
+    }
+    resto = soma%11;
+    if(resto < 2){
+        cod_1 = 0;
+    } else {
+        cod_1 = 11 - resto;
+    }
+    if(cod_1 != (cnpj[12] - '0')){
+        return false;
+    } else {
+        soma = 0;
+        for(int i=0; i<13; i++){
+            aux = cnpj[i] - '0';
+            soma += aux*multiplicador[i];
+        }
+        resto = soma%11;
+        if(resto < 2){
+            cod_2 = 0;
+        } else {
+            cod_2 = 11 - resto;
+        }
+        if(cod_2 != (cnpj[13] - '0')){
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
 
 Cliente::Cliente(){
     this->clientes_cadastrados.push_back(this);
 }
 
-Cliente::Cliente(string _nome, Endereco _endereco, long int _telefone, long int _cpf_cnpj){
+Cliente::Cliente(string _nome, Endereco _endereco, long int _telefone, string _cpf_cnpj){
+
+    if(_cpf_cnpj.length() == 11){
+        if(!validar_cpf(_cpf_cnpj)){
+            cout << "CPF inválido!" << endl;
+        }
+    } else if(_cpf_cnpj.length() == 14){
+        if(!validar_cnpj(_cpf_cnpj)){
+            cout << "CNPJ inválido!" << endl;
+        }
+    } else {
+        cout << "CPF/CNPJ inválido!" << endl;
+    }
 
     this->nome = _nome;
     this->endereco = _endereco;

@@ -24,7 +24,7 @@ class Cliente : public Usuario {
 
     public:
     Cliente();
-    Cliente(string, Endereco, long int, long int);
+    Cliente(string, Endereco, long int, string);
     void setNome(string);
     string getNome();
     void setEndereco(Endereco);

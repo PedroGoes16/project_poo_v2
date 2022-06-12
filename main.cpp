@@ -13,7 +13,11 @@ int main(){
 
     Endereco end_1("Rua 10", 100, "Bairro 2", "AP 102", 31030085, "BH", "MG");
 
-    Cliente cliente_1("Pedro", end_1, 98230505, 11672417627);
+    Cliente cliente_1("Pedro", end_1, 98230505, "11672417628");
+
+    Cliente cliente_2("Pedro", end_1, 98230505, "41072668000122");
+
+    Cliente cliente_3("Pedro", end_1, 98230505, "116724176283");
 
     UnidadeConsumidora unid_1("XXX", "Comercial", end_1);
 
@@ -26,13 +30,5 @@ int main(){
     cliente_1.addFatura(&fat_1);
 
     unid_1.addFatura(&fat_1);
-
-    cout << cliente_1.getFaturas()[0]->getValor() << endl;
-
-    cout << cliente_1.getUnidadesVinculadas()[0]->getId() << endl;
-
-    cout << unid_1.getFaturas()[0]->getValor() << endl;
-
-    cout << fat_1.calcularJuros() << endl;
 
 }
