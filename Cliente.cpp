@@ -1,12 +1,19 @@
 #include "Cliente.h"
+#include <iostream>
 
-Cliente::Cliente(){}
+using namespace std;
+
+Cliente::Cliente(){
+    this->clientes_cadastrados.push_back(this);
+}
 
 Cliente::Cliente(string _nome, Endereco _endereco, long int _telefone, long int _cpf_cnpj){
+
     this->nome = _nome;
     this->endereco = _endereco;
     this->telefone = _telefone;
     this->cpf_cnpj = _cpf_cnpj;
+    this->clientes_cadastrados.push_back(this);
 }
 
 void Cliente::setNome(std::string _nome){
@@ -33,11 +40,11 @@ long int Cliente::getTelefone(){
     return this->telefone;
 }
 
-void Cliente::setCpfCnpj(long int _cpf_cnpj){
+void Cliente::setCpfCnpj(string _cpf_cnpj){
     this->cpf_cnpj = _cpf_cnpj;
 }
 
-long int Cliente::getCpfCnpj(){
+string Cliente::getCpfCnpj(){
     return this->cpf_cnpj;
 }
 
