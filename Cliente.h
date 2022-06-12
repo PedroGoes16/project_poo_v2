@@ -16,9 +16,10 @@ class Cliente {
     string nome;
     Endereco endereco;
     long int telefone;
-    long int cpf_cnpj;
+    string cpf_cnpj;
     vector<UnidadeConsumidora*> unidades_vinculadas;
     vector<Fatura*> faturas;
+    vector<Cliente*> clientes_cadastrados;
 
     public:
     Cliente();
@@ -29,8 +30,8 @@ class Cliente {
     Endereco getEndereco();
     void setTelefone(long int);
     long int getTelefone();
-    void setCpfCnpj(long int);
-    long int getCpfCnpj();
+    void setCpfCnpj(string);
+    string getCpfCnpj();
     void addUnidadeVinculada(UnidadeConsumidora*);
     void removeUnidadeVinculada(UnidadeConsumidora*);
     vector<UnidadeConsumidora*> getUnidadesVinculadas();
