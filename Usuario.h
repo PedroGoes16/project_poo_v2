@@ -4,7 +4,6 @@
 using namespace std;
 
 class Usuario {
-
   private:
   int id;
   int senha;
@@ -12,6 +11,6 @@ class Usuario {
   public:
   Usuario();
   Usuario(int, int);
-}
+};
 
 #endif
