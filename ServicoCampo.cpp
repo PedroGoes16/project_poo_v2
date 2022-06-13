@@ -4,10 +4,11 @@
 
 ServicoCampo::ServicoCampo(){}
 
-ServicoCampo::ServicoCampo(int _sequencia, Data _data_programacao, Funcionario *_funcionario){
+ServicoCampo::ServicoCampo(int _sequencia, Data _data_programacao, Funcionario *_funcionario, UnidadeConsumidora *_uc){
     this->sequencia = _sequencia;
     this->data_programacao = _data_programacao;
     this->funcionario = _funcionario;
+    this->uc = _uc;
 }
 
 void ServicoCampo::setDataProgramacao(Data _data_programacao){
@@ -26,6 +27,18 @@ int ServicoCampo::getSequencia(){
     return this->sequencia;
 }
 
-// void Funcionario::setFuncionario(Funcionario *) {};
+void ServicoCampo::setFuncionario(Funcionario *_funcionario){
+    this->funcionario = _funcionario;
+}
 
-// Funcionario getFuncionario;
+Funcionario* ServicoCampo:: getFuncionario(){
+    return this->funcionario;
+}
+
+void ServicoCampo::setUnidadeConsumidora(UnidadeConsumidora *_uc){
+    this->uc = _uc;
+}
+
+UnidadeConsumidora* ServicoCampo:: getUnidadeConsumidora(){
+    return this->uc;
+}

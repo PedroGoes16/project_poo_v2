@@ -15,14 +15,15 @@ class ServicoCampo{
 
     public:
     ServicoCampo();
-    //precisa adicionar funcionario
-    ServicoCampo(int, Data, Funcionario *);
+    ServicoCampo(int, Data, Funcionario*, UnidadeConsumidora*);
     void setDataProgramacao(Data);
     Data getDataProgramacao();
     void setSequencia(int);
     int getSequencia();
-    // void setFuncionario(Funcionario *);
-    // Funcionario *getFuncionario();
+    void setFuncionario(Funcionario*);
+    Funcionario* getFuncionario();
+    void setUnidadeConsumidora(UnidadeConsumidora*);
+    UnidadeConsumidora* getUnidadeConsumidora();
 };
 
 #endif
