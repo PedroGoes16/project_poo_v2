@@ -4,9 +4,9 @@
 
 UnidadeConsumidora::UnidadeConsumidora(){}
 
-UnidadeConsumidora::UnidadeConsumidora(string _id, string _tipo, Endereco _endereco){
+UnidadeConsumidora::UnidadeConsumidora(string _id, int _tipo, Endereco _endereco){
     this->id = _id;
-    this->tipo = _tipo;
+    this->tipo = this->tipos[_tipo];
     this->endereco = _endereco;
 }
 

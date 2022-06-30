@@ -8,7 +8,7 @@ void ProcessamentoFatura::cadastrarFatura(Fatura* _fatura, Cliente* _cliente, Un
 }
 
 void ProcessamentoFatura::pagarFatura(Fatura* _fatura){
-    _fatura->setValor(_fatura->getValor()+_fatura->calcularJuros());
+    _fatura->setValor(_fatura->getValorFinal());
     if(_fatura->getStatusPagamento() == true){
         cout << "Fatura já está paga" << endl;
     } else {

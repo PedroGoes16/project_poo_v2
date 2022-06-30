@@ -11,6 +11,7 @@ using namespace std;
 class UnidadeConsumidora {
 
     private:
+    vector<string> tipos = {"Residencial", "Comercial", "Industrial", "Iluminacao Publica"};
     string id;
     string tipo;
     float ultima_leitura = 0;
@@ -19,7 +20,7 @@ class UnidadeConsumidora {
 
     public:
     UnidadeConsumidora();
-    UnidadeConsumidora(string, string, Endereco);
+    UnidadeConsumidora(string, int, Endereco);
     void setId(string);
     string getId();
     void setTipo(string);

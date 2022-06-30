@@ -45,16 +45,9 @@ bool validar_cnpj(string cnpj){
 
 int main(){
 
-    time_t t;
-    time(&t);
+    string nome = "Pedro";
 
-    cout << localtime(&t)->tm_mday << endl;
-
-    cout << (localtime(&t)->tm_mon + 1) << endl;
-
-    cout << (localtime(&t)->tm_year + 1900) << endl;
-
-    cout << validar_cnpj("112223330001811") << endl;
+    cout << nome.length() << endl;
 
     return 0;
 }

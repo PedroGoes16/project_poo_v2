@@ -23,8 +23,8 @@ void Fatura::setValor(float _valor){
     this->valor = _valor;
 }
 
-float Fatura::getValor(){
-    return this->valor;
+float Fatura::getValorFinal(){
+    return this->getValorOriginal() + this->calcularJuros();
 }
 
 void Fatura::setVencimento(Data _vencimento){
@@ -51,16 +51,20 @@ float Fatura::getTaxaJuros(){
     return this->taxa_juros;
 }
 
+float Fatura::getValorOriginal(){
+    return this->valor;
+}
+
 float Fatura::calcularJuros(){
-    float montante = this->getValor();
+    float montante = this->getValorOriginal();
     if(this->getStatusPagamento() || this->getVencimento().diffData(this->getVencimento().dateNow()) > 0){
         return 0;
     } else {
-        int atraso = this->getVencimento().diffData(this->getVencimento().dateNow());
+        int atraso = (-1)*(this->getVencimento().diffData(this->getVencimento().dateNow()));
         while(atraso > 0){
             montante += montante*this->getTaxaJuros();
             atraso -= 30;
         }
-        return (montante - this->getValor());
+        return (montante - this->getValorOriginal());
     }
 }

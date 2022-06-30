@@ -9,12 +9,18 @@
 using namespace std;
 
 class Funcionario : public Usuario {
+
     private:
     string id;
     vector<ServicoCampo*> servicos;
 
     public:
     Funcionario();
+    void programarServico(ServicoCampo*);
+    void desprogramarServico(ServicoCampo*);
+    vector<ServicoCampo*> getServicos();
+    void registrarExecucao(ServicoCampo*);
+    vector<ServicoCampo*> extrairRelatorio();
 
 };
 

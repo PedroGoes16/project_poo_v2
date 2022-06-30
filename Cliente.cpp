@@ -77,7 +77,6 @@ bool validar_cnpj(string cnpj){
 }
 
 Cliente::Cliente(){
-    this->clientes_cadastrados.push_back(this);
 }
 
 Cliente::Cliente(string _nome, Endereco _endereco, long int _telefone, string _cpf_cnpj){
@@ -98,7 +97,6 @@ Cliente::Cliente(string _nome, Endereco _endereco, long int _telefone, string _c
     this->endereco = _endereco;
     this->telefone = _telefone;
     this->cpf_cnpj = _cpf_cnpj;
-    this->clientes_cadastrados.push_back(this);
 }
 
 void Cliente::setNome(std::string _nome){
@@ -133,11 +131,23 @@ string Cliente::getCpfCnpj(){
     return this->cpf_cnpj;
 }
 
-void Cliente::addUnidadeVinculada(UnidadeConsumidora* _uc){
-    this->unidades_vinculadas.push_back(_uc);
+void Cliente::vincularUnidade(UnidadeConsumidora* _uc){
+    if(this->getCpfCnpj().length() == 11){
+        if(_uc->getTipo() == "Residencial" || _uc->getTipo() == "Comercial"){
+            this->unidades_vinculadas.push_back(_uc);
+        } else {
+            cout << "Unidade nao vinculada! Cliente Fisico nao aceita este tipo de Unidade." << endl;
+        }
+    } else if(this->getCpfCnpj().length() == 14){
+        if(_uc->getTipo() == "Comercial" || _uc->getTipo() == "Industrial" || _uc->getTipo() == "Iluminacao Publica"){
+            this->unidades_vinculadas.push_back(_uc);
+        } else {
+            cout << "Unidade nao vinculada! Cliente Juridico nao aceita este tipo de Unidade." << endl;
+        }
+    }
 }
 
-void Cliente::removeUnidadeVinculada(UnidadeConsumidora* _uc){
+void Cliente::desvincularUnidade(UnidadeConsumidora* _uc){
     vector<UnidadeConsumidora*>::iterator unidade_removida = this->unidades_vinculadas.begin();
     for(UnidadeConsumidora* uc : this->unidades_vinculadas){
         if(uc == _uc){

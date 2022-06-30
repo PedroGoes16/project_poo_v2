@@ -32,8 +32,8 @@ class Cliente : public Usuario {
     long int getTelefone();
     void setCpfCnpj(string);
     string getCpfCnpj();
-    void addUnidadeVinculada(UnidadeConsumidora*);
-    void removeUnidadeVinculada(UnidadeConsumidora*);
+    void vincularUnidade(UnidadeConsumidora*);
+    void desvincularUnidade(UnidadeConsumidora*);
     vector<UnidadeConsumidora*> getUnidadesVinculadas();
     void addFatura(Fatura*);
     void removeFatura(Fatura*);

@@ -18,7 +18,8 @@ class Fatura{
     void setConsumo(float);
     float getConsumo();
     void setValor(float);
-    float getValor();
+    float getValorOriginal();
+    float getValorFinal();
     void setVencimento(Data);
     Data getVencimento();
     void setStatusPagamento(bool);
