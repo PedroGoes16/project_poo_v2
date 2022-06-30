@@ -20,7 +20,6 @@ class Cliente : public Usuario {
     string cpf_cnpj;
     vector<UnidadeConsumidora*> unidades_vinculadas;
     vector<Fatura*> faturas;
-    vector<Cliente*> clientes_cadastrados;
 
     public:
     Cliente();

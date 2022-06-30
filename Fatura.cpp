@@ -53,11 +53,10 @@ float Fatura::getTaxaJuros(){
 
 float Fatura::calcularJuros(){
     float montante = this->getValor();
-    if(this->getStatusPagamento() || this->getVencimento().difDatas(this->getVencimento().getDataAtual()) >= 0){
+    if(this->getStatusPagamento() || this->getVencimento().diffData(this->getVencimento().dateNow()) > 0){
         return 0;
     } else {
-        int atraso = (-1)*this->getVencimento().difDatas(this->getVencimento().getDataAtual());
-        cout << atraso << endl;
+        int atraso = this->getVencimento().diffData(this->getVencimento().dateNow());
         while(atraso > 0){
             montante += montante*this->getTaxaJuros();
             atraso -= 30;
