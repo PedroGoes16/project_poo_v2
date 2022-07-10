@@ -11,8 +11,9 @@ class ProcessamentoFatura {
 
     public:
     ProcessamentoFatura();
-    void cadastrarFatura(Fatura*, Cliente*, UnidadeConsumidora*);
+    void cadastrarFatura(Fatura*, UnidadeConsumidora*);
     void pagarFatura(Fatura*);
+    Fatura* gerarFatura(float _consumo);
 };
 
 #endif

@@ -41,3 +41,5 @@ string Formato::getSeparadorHorario()
 {
     return separadorHorario;
 }
+
+

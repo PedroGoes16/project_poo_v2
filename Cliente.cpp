@@ -160,21 +160,3 @@ void Cliente::desvincularUnidade(UnidadeConsumidora* _uc){
 vector<UnidadeConsumidora*> Cliente::getUnidadesVinculadas(){
     return this->unidades_vinculadas;
 }
-
-void Cliente::addFatura(Fatura* _fatura){
-    this->faturas.push_back(_fatura);
-}
-
-void Cliente::removeFatura(Fatura* _fatura){
-    vector<Fatura*>::iterator fatura_removida = this->faturas.begin();
-    for(Fatura* fatura : this->faturas){
-        if(fatura == _fatura){
-            this->faturas.erase(fatura_removida);
-        }
-        fatura_removida++;
-    }
-}
-
-vector<Fatura*> Cliente::getFaturas(){
-    return this->faturas;
-}

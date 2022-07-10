@@ -26,11 +26,13 @@ Fatura* Inadimplentes::getFatura(){
 vector<Inadimplentes> Inadimplentes::listarInadimplentes(vector<Cliente*> _clientes){
     vector<Inadimplentes> lista_inadimplentes;
     for(Cliente* c : _clientes){
-        for(Fatura* f : c->getFaturas()){
-            int atraso = (-1)*f->getVencimento().diffData(f->getVencimento().dateNow());
-            if(atraso > 0 && !f->getStatusPagamento()){
-                Inadimplentes inad_aux(c, f);
-                lista_inadimplentes.push_back(inad_aux);
+        for(UnidadeConsumidora* uc : c->getUnidadesVinculadas()){
+            for(Fatura* f : uc->getFaturas()){
+                int atraso = (-1)*f->getVencimento().diffData(f->getVencimento().dateNow());
+                if(atraso > 0 && !f->getStatusPagamento()){
+                    Inadimplentes inad_aux(c, f);
+                    lista_inadimplentes.push_back(inad_aux);
+                }
             }
         }
     }

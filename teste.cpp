@@ -3,6 +3,9 @@
 #include <chrono>
 #include <string>
 #include <vector>
+#include "Data.h"
+#include "Formato.h"
+#include "ExecaoCustomizada.h"
 
 using namespace std;
 using namespace chrono;
@@ -45,9 +48,11 @@ bool validar_cnpj(string cnpj){
 
 int main(){
 
-    string nome = "Pedro";
+    Data data1;
 
-    cout << nome.length() << endl;
+    data1 = data1.dateNow()+20;
+
+    data1.printData();
 
     return 0;
 }

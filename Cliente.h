@@ -19,7 +19,6 @@ class Cliente : public Usuario {
     long int telefone;
     string cpf_cnpj;
     vector<UnidadeConsumidora*> unidades_vinculadas;
-    vector<Fatura*> faturas;
 
     public:
     Cliente();
@@ -35,9 +34,6 @@ class Cliente : public Usuario {
     void vincularUnidade(UnidadeConsumidora*);
     void desvincularUnidade(UnidadeConsumidora*);
     vector<UnidadeConsumidora*> getUnidadesVinculadas();
-    void addFatura(Fatura*);
-    void removeFatura(Fatura*);
-    vector<Fatura*> getFaturas();
 
 };
 

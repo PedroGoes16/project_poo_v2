@@ -7,6 +7,7 @@ class Fatura{
 
     private:
     float taxa_juros = 0.01;
+    float valor_kwh = 1.1;
     float consumo;
     float valor;
     Data vencimento;
@@ -14,7 +15,7 @@ class Fatura{
 
     public:
     Fatura();
-    Fatura(float, float, Data);
+    Fatura(float, Data);
     void setConsumo(float);
     float getConsumo();
     void setValor(float);

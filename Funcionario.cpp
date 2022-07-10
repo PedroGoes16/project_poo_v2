@@ -35,6 +35,7 @@ vector<ServicoCampo*> Funcionario::getServicos(){
 }
 
 void Funcionario::registrarExecucao(ServicoCampo* _servico){
+    // implementar if com data para conferir que só houve 8 execuções por dia
     Data data_aux;
     _servico->setDataExecucao(data_aux.dateNow());
     this->desprogramarServico(_servico);

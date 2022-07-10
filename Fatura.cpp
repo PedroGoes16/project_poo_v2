@@ -5,9 +5,9 @@ using namespace std;
 
 Fatura::Fatura(){}
 
-Fatura::Fatura(float _consumo, float _valor, Data _vencimento){
+Fatura::Fatura(float _consumo, Data _vencimento){
     this->consumo = _consumo;
-    this->valor = _valor;
+    this->valor = ((this->consumo)*(this->valor_kwh));
     this->vencimento = _vencimento;
 }
 

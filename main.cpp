@@ -8,6 +8,7 @@
 #include "Dados.h"
 #include "ProcessamentoFatura.h"
 #include "Inadimplentes.h"
+#include "Medicao.h"
 
 #include <iostream>
 #include <ctime>
@@ -36,20 +37,11 @@ int main(){
 
     UnidadeConsumidora uc3("0003", 2, end1);
 
-    Data venc1(2022, 07, 20, 0, 0, 0);
-    Data venc2(2022, 03, 20, 0, 0, 0);
-    Data venc3(2022, 05, 20, 0, 0, 0);
+    Medicao med;
 
-    Fatura fat1(100, 200, venc1);
-    Fatura fat2(100, 200, venc2);
-    Fatura fat3(100, 200, venc3);
-
-    processador_de_faturas.cadastrarFatura(&fat1, &cliente1, &uc1);
-    processador_de_faturas.cadastrarFatura(&fat2, &cliente2, &uc2);
-    processador_de_faturas.cadastrarFatura(&fat3, &cliente3, &uc3);
-    processador_de_faturas.pagarFatura(&fat1);
-    processador_de_faturas.pagarFatura(&fat2);
-    processador_de_faturas.pagarFatura(&fat3);
+    med.registrarLeitura(100, &uc1);
+    med.registrarLeitura(200, &uc2);
+    med.registrarLeitura(300, &uc3);
 
     banco_de_dados.cadastrarCliente(&cliente1);
     banco_de_dados.cadastrarCliente(&cliente2);
@@ -61,8 +53,12 @@ int main(){
     cliente2.vincularUnidade(&uc2);
     cliente3.vincularUnidade(&uc3);
 
-    for(Inadimplentes inad : Irregulares.listarInadimplentes(banco_de_dados.getClientesCadastrados())){
-        cout << inad.getFatura()->getValorOriginal() << endl;
+    for(Cliente* cliente : banco_de_dados.getClientesCadastrados()){
+        for(UnidadeConsumidora* uc : cliente->getUnidadesVinculadas()){
+            for(Fatura* fatura: uc->getFaturas()){
+                cout << fatura->getValorFinal() << endl;
+            }
+        }
     }
 
     return 0;
