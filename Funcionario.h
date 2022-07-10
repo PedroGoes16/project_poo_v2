@@ -10,7 +10,7 @@ using namespace std;
 
 class Funcionario : public Usuario {
     private:
-    // string id;
+    string id;
     // vector<ServicoCampo*> servicos;
 
     public:
